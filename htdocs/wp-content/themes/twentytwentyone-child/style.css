@@ -1,0 +1,71 @@
+/**
+ * Theme Name: enfant
+ * Template:   twentytwentyone
+ */
+
+
+ /* guestroom-block-styles.css */
+
+.guestrooms-list-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.guestroom-list-item {
+    width: calc(50% - 20px); 
+    margin: 0 10px 20px 0;
+}
+
+.guestroom-list-item a {
+    display: block;
+    text-decoration: none;
+    border: 1px solid #666 !important;
+    padding: 15px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.guestroom-list-item a:hover {
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.guestroom-list-item h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.guestroom-list-item .guestroom-list-thumbnail img {
+    max-width: 100%;
+    height: auto;
+}
+
+.guestroom-list-item p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.guestroom_archive_link{
+    text-align: center;
+}
+
+/* styles pour le menu */
+.header-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header-menu li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.header-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}

@@ -1,0 +1,190 @@
+body {
+    background-color: #ffcc00; /* Jaune flashy */
+    color: #ff00ff; /* Rose flashy */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #00ff00; /* Vert flashy */
+}
+
+a {
+    color: #ff0000 !important; /* Rouge flashy */
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #0000ff !important; /* Bleu flashy */
+}
+
+.entry-content {
+    background-color: #9900ff; /* Violet flashy */
+    padding: 20px;
+    border: 2px solid #00ffff; /* Cyan flashy */
+    margin: 20px 0;
+}
+
+.entry-header {
+    background-color: #ff6600; /* Orange flashy */
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.entry-footer {
+    background-color: #33cc33; /* Vert lime flashy */
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.comment-list {
+    background-color: #ffff00; /* Jaune vif */
+    padding: 10px;
+    border: 2px solid #ff0000; /* Rouge vif */
+    margin: 20px 0;
+}
+
+.comment-reply-link {
+    color: #0000ff !important; /* Bleu vif */
+}
+
+.widget {
+    background-color: #ff99cc; /* Rose pâle flashy */
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.widget-title {
+    color: #990000; /* Rouge foncé */
+    font-size: 1.5em;
+    border-bottom: 2px solid #ff0000; /* Rouge flashy */
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+/* Exemple d'effets de texte pour la page single guestrooms */
+.single-guestrooms h1 {
+    color: #0066cc; /* Couleur du titre */
+    position: relative; /* Position relative pour permettre des animations absolues */
+}
+
+/* Effet de rotation */
+@keyframes rotateText {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Effet de zoom */
+@keyframes zoomText {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+/* Effet de déplacement horizontal */
+@keyframes moveText {
+    0% { left: 0; }
+    50% { left: 50px; }
+    100% { left: 0; }
+}
+
+/* Appliquer les animations */
+.single-guestrooms h1.rotate {
+    animation: rotateText 4s infinite; /* Rotation infinie sur une période de 4 secondes */
+}
+
+.single-guestrooms h1.zoom {
+    animation: zoomText 3s infinite; /* Zoom infini sur une période de 3 secondes */
+}
+
+.single-guestrooms h1.move {
+    animation: moveText 2s infinite; /* Déplacement horizontal infini sur une période de 2 secondes */
+}
+/* Exemple d'effets de texte pour la page single guestrooms */
+.single-guestrooms h1 {
+    color: #ff00ff; /* Couleur du titre */
+    position: relative; /* Position relative pour permettre des animations absolues */
+}
+
+/* Effet de rotation */
+@keyframes rotateText {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Effet de zoom */
+@keyframes zoomText {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5); }
+    100% { transform: scale(1); }
+}
+
+/* Effet de déplacement horizontal */
+@keyframes moveText {
+    0% { left: 0; }
+    50% { left: 50px; }
+    100% { left: 0; }
+}
+
+/* Effet de clignotement */
+@keyframes blinkText {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Effet de rebondissement */
+@keyframes bounceText {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-20px); }
+    60% { transform: translateY(-10px); }
+}
+
+@keyframes flashColor {
+    0%, 100% {
+        background-color: red;
+        color: white;
+    }
+    25% {
+        background-color: yellow;
+        color: black;
+    }
+    50% {
+        background-color: green;
+        color: white;
+    }
+    75% {
+        background-color: blue;
+        color: white;
+    }
+}
+
+.single-guestrooms {
+    animation: flashColor 5s infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* Appliquer les animations */
+.single-guestrooms h1.rotate {
+    animation: rotateText 4s infinite; /* Rotation infinie sur une période de 4 secondes */
+}
+
+.single-guestrooms h1.zoom {
+    animation: zoomText 3s infinite; /* Zoom infini sur une période de 3 secondes */
+}
+
+.single-guestrooms h1.move {
+    animation: moveText 2s infinite; /* Déplacement horizontal infini sur une période de 2 secondes */
+}
+
+.single-guestrooms h1.blink {
+    animation: blinkText 2s infinite; /* Clignotement infini sur une période de 2 secondes */
+}
+
+.single-guestrooms h1.bounce {
+    animation: bounceText 2s infinite; /* Rebondissement infini sur une période de 2 secondes */
+}

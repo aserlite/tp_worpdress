@@ -19,6 +19,27 @@ class GridBlock {
             array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor'),
             true
         );
+
+        add_action('enqueue_block_assets', array($this, 'enqueue_guestroom_block_styles'));
+
+    }
+
+
+    public function enqueue_guestroom_block_styles()
+    {
+        wp_enqueue_style(
+            'guestroom-block-styles',
+            plugin_dir_url(__FILE__) . '../css/block-styles.css',
+            array(),
+            '1.0.0'
+        );
+
+        wp_enqueue_style(
+            'guestroom-styles',
+            plugin_dir_url(__FILE__) . '../css/style.css',
+            array(),
+            '1.0.0'
+        );
     }
 
     public function render_guestrooms_block($attributes)
@@ -39,12 +60,14 @@ class GridBlock {
                 $output .= '<li class="guestroom-item">';
                 $output .= '<a href="' . esc_url($permalink) . '">';
                 $output .= '<div class="guestroom-thumbnail">' . $thumbnail . '</div>';
-                $output .= '<h2>' . esc_html($title) . '</h2>';
                 $output .= '</a>';
                 $output .= '</li>';
             }
 
             $output .= '</ul>';
+            $output .= '<div class="guest_link_wrapper"><a href="';
+            $output .= get_post_type_archive_link('guestrooms');
+            $output .= '" class="guestroom_archive_link">Voir toutes les chambres</a></div>';
         } else {
             $output = '<p>Aucune chambre n\'a été trouvée.</p>';
         }
