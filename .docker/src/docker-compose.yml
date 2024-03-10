@@ -1,0 +1,65 @@
+version: "3.9"
+services:
+  app:
+    depends_on:
+      - db
+      - pma
+    build:
+      context: .
+      dockerfile: build/app/Dockerfile
+      args:
+        DOCKER_WWW_DATA_GID: ${DOCKER_WWW_DATA_GID}
+        DOCKER_WWW_DATA_UID: ${DOCKER_WWW_DATA_UID}
+        NODEJS_VERSION: ${NODEJS_VERSION:-18.12.1}
+        PHP_VERSION: ${PHP_VERSION:-8.0}
+        ALPINE_VERSION: ${ALPINE_VERSION:-3.16}
+        XDEBUG_VERSION: ${XDEBUG_VERSION:-3.2.0}
+    working_dir: /app
+    user: ${DOCKER_WWW_DATA_UID}:${DOCKER_WWW_DATA_GID}
+    environment:
+      APP_PUBLIC_DIR: ${APP_PUBLIC_DIR:-/app/htdocs}
+      DOCKER_WWW_DATA_GID: ${DOCKER_WWW_DATA_GID}
+      DOCKER_WWW_DATA_UID: ${DOCKER_WWW_DATA_UID}
+      NODEJS_VERSION: ${NODEJS_VERSION:-18.12.1}
+      PHP_VERSION: ${PHP_VERSION:-8.0}
+      ALPINE_VERSION: ${ALPINE_VERSION:-3.16}
+      XDEBUG_VERSION: ${XDEBUG_VERSION:-3.2.0}
+      PHP_IDE_CONFIG: ~
+      SHELL: /bin/zsh
+    extra_hosts:
+      - "docker.host.ip:host-gateway"
+    ports:
+      - "80:80"
+    networks:
+      - default
+    volumes:
+      - ./../../:/app:cached
+      - ./config/php/xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug-20.ini:ro
+      - ./scripts/app/setup-xdebug.sh:/docker/setup-xdebug.sh
+      - ./scripts/app/setup-xdebug.sh:/docker/wordpress.sh
+      - ./scripts/app/init.sh:/docker/init.sh
+
+  db:
+    image: mariadb:10.4
+    ports:
+      - "3306"
+    networks:
+      - default
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=database
+      - MYSQL_PASSWORD=database
+      - MYSQL_DATABASE=database
+    volumes:
+      - ./../../.data/db:/var/lib/mysql:delegated
+
+  pma:
+    image: phpmyadmin/phpmyadmin:latest
+    depends_on:
+      - db
+    networks:
+      - default
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOSTS: db

@@ -1,0 +1,5 @@
+.data/
+.idea/
+.env
+htdocs/.htaccess
+htdocs/wp-content/uploads

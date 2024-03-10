@@ -1,0 +1,45 @@
+{
+    "name": "devgeniem/acf-codifier",
+    "type": "wordpress-muplugin",
+    "description": "ACF Codifier",
+    "authors": [
+        {
+            "name": "Miika Arponen",
+            "email": "miika@geniem.com",
+            "homepage": "http://geniem.com/",
+            "role": "Developer"
+        }
+    ],
+    "keywords": [
+        "wordpress", "acf"
+    ],
+    "license": "GPL-3.0-or-later",
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "git",
+            "url": "ssh://git@github.com/devgeniem/acf-codifier.git"
+        }
+    ],
+    "conflict": {
+        "devgeniem/redipress": "<2.0"
+    },
+    "autoload": {
+        "psr-4": {"Geniem\\ACF\\": "src/"}
+    },
+    "scripts": {
+        "update-docs": "./vendor/victorjonsson/markdowndocs/phpdoc-md generate --ignore=Fields,External src > docs/classes.md"
+    },
+    "require": {
+        "php": ">=7.1"
+    },
+    "require-dev": {
+        "victorjonsson/markdowndocs": "^1.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
